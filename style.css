@@ -1,0 +1,25 @@
+@keyframes hover {
+    0% {
+        background-color: white;
+    }
+    0.00000000001% {
+        background-color: green;
+    }
+    100% {
+        background-color: green;
+    }
+}
+
+.grid-element {
+    animation-name: hover;
+    animation-duration: 100000000000000ms;
+    animation-fill-mode: backwards;
+    animation-play-state: paused;
+}
+
+.grid-element:active,
+.grid-element:focus,
+.grid-element:hover {
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
