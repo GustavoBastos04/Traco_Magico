@@ -43,6 +43,9 @@ grid.classList.add("main-container");
 
 grid.style.display = "flex";
 grid.style.flexDirection = "column";
+grid.style.borderStyle = "solid"
+grid.style.borderColor = "black";
+grid.style.borderWidth = "thin";
 
 grid.style.width = "600px";
 grid.style.height = "600px";
@@ -72,10 +75,6 @@ function addSquares(numOfSqrs){
             let gridElement = document.createElement("div");
             gridElement.classList.add("grid-element");
             gridElement.classList.add(`${j}`);
-
-            gridElement.style.borderStyle = "solid"
-            gridElement.style.borderColor = "black";
-            gridElement.style.borderWidth = "thin";
 
             gridElement.style.width = "100%";
             gridElement.style.height = "100%";

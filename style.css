@@ -1,6 +1,6 @@
 @keyframes hover {
     0% {
-        background-color: white;
+        background-color: rgb(192, 191, 191);
     }
     0.00000000001% {
         background-color: green;
