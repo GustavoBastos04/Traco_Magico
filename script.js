@@ -49,35 +49,55 @@ grid.style.height = "600px";
 
 body.appendChild(grid);
 
-for (let i = 1; i <= 16; i++) {
-    
-    // Grid Rows
-    let gridRow = document.createElement("div");
-    gridRow.style.display = "flex";
-    
-    gridRow.style.width ="100%";
-    gridRow.style.height = "100%";
+// Change number of Squares
+function addSquares(numOfSqrs){
 
-    gridRow.classList.add("grid-row");
-    gridRow.classList.add(`${i}`);
+    for(let i = 1; i <= numOfSqrs; i++) {
 
-    grid.appendChild(gridRow);
+        // Grid Rows
+        let gridRow = document.createElement("div");
+        gridRow.style.display = "flex";
 
-    for (let j = 1; j <= 16; j++) {
-        
-        // Grid Squares
-        let gridElement = document.createElement("div");
-        gridElement.classList.add("grid-element");
-        gridElement.classList.add(`${j}`);
-        
-        gridElement.style.borderStyle = "solid"
-        gridElement.style.borderColor = "black";
-        gridElement.style.borderWidth = "thin";
-        
-        gridElement.style.width = "100%";
-        gridElement.style.height = "100%";
+        gridRow.style.width = "100%";
+        gridRow.style.height = "100%";
 
-        gridRow.appendChild(gridElement);
+        gridRow.classList.add("grid-row");
+        gridRow.classList.add(`${i}`);
+
+        grid.appendChild(gridRow);
+
+        for (let j = 1; j <= numOfSqrs; j++) {
+
+            // Grid Squares
+            let gridElement = document.createElement("div");
+            gridElement.classList.add("grid-element");
+            gridElement.classList.add(`${j}`);
+
+            gridElement.style.borderStyle = "solid"
+            gridElement.style.borderColor = "black";
+            gridElement.style.borderWidth = "thin";
+
+            gridElement.style.width = "100%";
+            gridElement.style.height = "100%";
+
+            gridRow.appendChild(gridElement);
+        }
     }
 }
 
+function removeSqrs(mainGridDiv) {
+    while (mainGridDiv.firstChild) {
+        mainGridDiv.removeChild(mainGridDiv.lastChild)
+    }
+}
+
+button.onclick = function changeGrid(){
+
+    removeSqrs(grid);
+    
+    let value = document.querySelector("input").value;
+    addSquares(value);
+}
+
+// Function to Generate the initial Sketchpad
+addSquares(16);
